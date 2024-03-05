@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 # Load data
-@st.cache
+@st.cache_data
 def load_data():
     data_hari = pd.read_csv('dayy.csv')
     return data_hari
