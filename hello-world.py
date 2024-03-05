@@ -47,19 +47,12 @@ with st.expander("See explanation"):
     )
 
 st.subheader('Rata-rata Pengguna per Tahun')
-# Membuat chart line untuk total pengguna per tahun
-plt.figure(figsize=(10, 6))
-for col in total_tahun.columns:
-    plt.plot(total_tahun.index, total_tahun[col], label=col)
+# Membuat chart line untuk total pengguna per bulan
+for col in total_bulan.columns:
+    bulan_tahun = total_bulan.index.map(lambda x: f"{x[0]}-{x[1]:02}")  
+    st.line_chart(total_bulan[col], use_container_width=True)
+    st.pyplot()  # Gunakan st.pyplot() setelah setiap chart jika Anda tetap ingin menggunakan Matplotlib
 
-plt.title('Total Pengguna per Tahun')
-plt.xlabel('Tahun')
-plt.ylabel('Total Pengguna')
-plt.legend()
-plt.grid(True)
-plt.xticks(rotation=45)
-plt.tight_layout()
-st.pyplot(plt)
 
 # Membuat chart bar untuk rata-rata pengguna per hari
 st.subheader('Rata-rata Pengguna per Hari')
