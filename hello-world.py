@@ -17,14 +17,13 @@ data_hari['month'] = data_hari['date'].dt.month
 data_hari['year'] = data_hari['date'].dt.year
 
 # Menghitung total pengguna per bulan
-total_bulan = data_hari.groupby(['year', 'month'])[['casual', 'registered', 'cnt']].sum()
+total_bulan = data_hari.groupby(['year', 'month']).agg({'casual': 'sum', 'registered': 'sum', 'cnt': 'sum'})
 
 # Menghitung total pengguna per tahun
-total_tahun = data_hari.groupby('year')[['casual', 'registered', 'cnt']].sum()
+total_tahun = data_hari.groupby('year').agg({'casual': 'sum', 'registered': 'sum', 'cnt': 'sum'})
 
 # Menampilkan chart line untuk total pengguna per bulan
 for col in total_bulan.columns:
-    bulan_tahun = total_bulan.index.map(lambda x: f"{x[0]}-{x[1]:02}")  
     st.line_chart(total_bulan[col], use_container_width=True)
 
 # Menampilkan chart line untuk total pengguna per tahun
