@@ -33,10 +33,7 @@ else:
     st.subheader('Hasil olah data total penggunaan perbulan')
     st.line_chart(total_bulan)
     with st.expander("See explanation"):
-    st.write(
-        """Dari data diatas menemukan jumlah penyewaan paling tinggi berada pada bulan 09 tahun 2012, lalu nomor dua tertinggi berada pada bulan 08 tahun 2012 sedangkan untuk hasil terendah berada dalam bulan 01 tahun 2011
-        """
-    )
+
 
 
     # Membuat chart line untuk total pengguna per tahun
@@ -44,8 +41,4 @@ else:
     st.line_chart(total_tahun)
     st.subheader('Rata-rata Pengguna per Hari')
 st.bar_chart(rata_rata_df)
-with st.expander("See explanation"):
-    st.write(
-        """Dari data table diatas disimpulkan bahwa rata rata pengguna perharinya berada pada angka sekitar 4.500
-        """
-    )
+
