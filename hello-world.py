@@ -1,6 +1,5 @@
 import pandas as pd
 import streamlit as st
-import matplotlib.pyplot as plt
 
 # Load data
 @st.cache
@@ -20,19 +19,5 @@ data_hari['year'] = data_hari['date'].dt.year
 # Menghitung total pengguna per bulan
 total_bulan = data_hari.groupby(['year', 'month'])[['casual', 'registered', 'cnt']].sum()
 
-# Menampilkan chart line untuk total pengguna per bulan
-plt.figure(figsize=(10, 6))
-for col in total_bulan.columns:
-    bulan_tahun = total_bulan.index.map(lambda x: f"{x[0]}-{x[1]:02}")  # Misalnya: "2022-01"
-    plt.plot(bulan_tahun, total_bulan[col], label=col)
-
-plt.title('Total Pengguna per Bulan')
-plt.xlabel('Tanggal')
-plt.ylabel('Total Pengguna')
-plt.legend()
-plt.grid(True)
-plt.xticks(rotation=45)
-plt.tight_layout()
-
-# Menampilkan plot menggunakan Streamlit
-st.pyplot(plt)
+# Menampilkan total pengguna per bulan menggunakan Streamlit
+st.line_chart(total_bulan)
