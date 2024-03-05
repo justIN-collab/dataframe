@@ -33,8 +33,6 @@ else:
     st.subheader("Total Pengguna per Bulan")
     # Membuat chart line untuk total pengguna per bulan
     st.line_chart(total_bulan)
-        st.write("Dari data diatas menemukan jumlah penyewaan paling tinggi berada pada bulan 09 tahun 2012, lalu nomor dua tertinggi berada pada bulan 08 tahun 2012 sedangkan untuk hasil terendah berada dalam bulan 01 tahun 2011")
-
     # Subheader for total pengguna per bulan
     st.subheader("Total Pengguna per Tahun")
     # Membuat chart line untuk total pengguna per tahun
