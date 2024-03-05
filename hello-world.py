@@ -37,7 +37,7 @@ else:
 
 
     # Membuat chart line untuk total pengguna per tahun
-    st.subheader('Rata-rata Pengguna per Tahun')
+
     st.line_chart(total_tahun)
     st.subheader('Rata-rata Pengguna per Hari')
 st.bar_chart(rata_rata_df)
