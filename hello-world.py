@@ -30,15 +30,7 @@ else:
     total_tahun = data_hari.groupby('year')[['casual', 'registered', 'cnt']].sum().reset_index()
 
     # Membuat chart line untuk total pengguna per bulan
-    st.subheader('Hasil olah data total penggunaan perbulan')
     st.line_chart(total_bulan)
-    with st.expander("See explanation"):
-
-
 
     # Membuat chart line untuk total pengguna per tahun
-
     st.line_chart(total_tahun)
-    st.subheader('Rata-rata Pengguna per Hari')
-st.bar_chart(rata_rata_df)
-
