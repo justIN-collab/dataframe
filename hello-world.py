@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 # Load data
-@st.cache_data
+@st.cache
 def load_data():
     data_hari = pd.read_csv('dayy.csv')
     return data_hari
@@ -24,10 +24,10 @@ else:
     data_hari['year'] = data_hari['date'].dt.year
 
     # Menghitung total pengguna per bulan
-    total_bulan = data_hari.groupby(['year', 'month'])[['casual', 'registered', 'cnt']].sum()
+    total_bulan = data_hari.groupby(['year', 'month'])[['casual', 'registered', 'cnt']].sum().reset_index()
 
     # Menghitung total pengguna per tahun
-    total_tahun = data_hari.groupby('year')[['casual', 'registered', 'cnt']].sum()
+    total_tahun = data_hari.groupby('year')[['casual', 'registered', 'cnt']].sum().reset_index()
 
     # Membuat chart line untuk total pengguna per bulan
     st.line_chart(total_bulan)
